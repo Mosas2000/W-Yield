@@ -1,18 +1,24 @@
 {
   "name": "wyield-vault",
   "version": "1.0.0",
-  "description": "**Simple. Secure. Yield.**",
+  "description": "W-Yield - Simple. Secure. Yield.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "hardhat test",
+    "compile": "hardhat compile",
+    "coverage": "hardhat coverage",
+    "deploy:sepolia": "hardhat run scripts/deploy.js --network baseSepolia",
+    "deploy:mainnet": "hardhat run scripts/deploy.js --network base",
+    "verify:sepolia": "hardhat run scripts/verify.js --network baseSepolia",
+    "verify:mainnet": "hardhat run scripts/verify.js --network base"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Mosas2000/W-Yield.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "cryptosecure.base.eth",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Mosas2000/W-Yield/issues"
   },
