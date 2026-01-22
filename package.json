@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/Mosas2000/W-Yield/issues"
   },
-  "homepage": "https://github.com/Mosas2000/W-Yield#readme"
+  "homepage": "https://github.com/Mosas2000/W-Yield#readme",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
+    "hardhat": "^3.1.5"
+  }
 }
