@@ -13,6 +13,7 @@ Professional yield vault on Base for wealth generation.
 ## Contract
 - **WealthVault.sol** - Main vault contract
 - **Token:** wUSDC (W-Yield USDC shares)
+- **Mainnet:** [`0x4F6c2D2bc33f032dbd74e617c32602bCBfFd3Fb2`](https://basescan.org/address/0x4F6c2D2bc33f032dbd74e617c32602bCBfFd3Fb2#code)
 
 ## Deployment
 

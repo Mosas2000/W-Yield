@@ -42,7 +42,8 @@ Status: Pending professional audit
 ## Smart Contract Addresses
 
 ### Base Mainnet
-- WealthVault: TBD
+- WealthVault: `0x4F6c2D2bc33f032dbd74e617c32602bCBfFd3Fb2`
+- [View on Basescan](https://basescan.org/address/0x4F6c2D2bc33f032dbd74e617c32602bCBfFd3Fb2#code)
 
 ### Base Sepolia (Testnet)
 - WealthVault: TBD
