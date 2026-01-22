@@ -5,14 +5,9 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 import "./interfaces/IWealthVault.sol";
 
-/**
- * @title WealthVault
- * @notice W-Yield - Simple. Secure. Yield.
- * @author Mosas2000 (cryptosecure.base.eth)
- */
 contract WealthVault is ERC20, Ownable, ReentrancyGuard, IWealthVault {
     using SafeERC20 for IERC20;
     
@@ -35,7 +30,7 @@ contract WealthVault is ERC20, Ownable, ReentrancyGuard, IWealthVault {
      * @notice Initialize W-Yield vault
      * @param _usdc USDC token address
      */
-    constructor(address _usdc) ERC20("W-Yield USDC", "wUSDC") {
+    constructor(address _usdc) ERC20("W-Yield USDC", "wUSDC") Ownable(msg.sender) {
         require(_usdc != address(0), "Invalid USDC");
         usdc = IERC20(_usdc);
         performanceFee = 200; // 2%
