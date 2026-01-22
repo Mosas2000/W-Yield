@@ -2,10 +2,17 @@
 
 **Simple. Secure. Yield.**
 
-Professional yield vault on Base blockchain.
+Professional yield vault on Base for wealth generation.
 
-## Overview
-W-Yield enables users to deposit USDC and earn yield through secure, automated DeFi strategies.
+## Features
+- 💰 Deposit USDC, earn yield
+- ⚡ Withdraw anytime (no lock)
+- 💎 Low fees (2% performance fee)
+- 🔗 Fully on-chain
+
+## Contract
+- **WealthVault.sol** - Main vault contract
+- **Token:** wUSDC (W-Yield USDC shares)
 
 ## Status
 🚧 In Development
