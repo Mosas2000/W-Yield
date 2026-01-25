@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.ethers.io/lib/ethers-5.7.2.umd.min.js"></script>
+</head>
+<body>
+    <input id="amt" placeholder="USDC amount" />
+    <button onclick="deposit()">Deposit</button>
+    <button onclick="withdraw()">Withdraw All</button>
+    <p id="status"></p>
+
+    <script>
+        const VAULT = '0x4F6c2D2bc33f032dbd74e617c32602bCBfFd3Fb2';
+        const USDC = '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913';
+
+        async function deposit() {
+            const provider = new ethers.providers.Web3Provider(window.ethereum);
+            await provider.send("eth_requestAccounts", []);
+            const signer = provider.getSigner();
+            
+            const amt = ethers.utils.parseUnits(document.getElementById('amt').value, 6);
+            
+            const usdc = new ethers.Contract(USDC, ['function approve(address,uint256)'], signer);
+            await (await usdc.approve(VAULT, amt)).wait();
+            
+            const vault = new ethers.Contract(VAULT, ['function deposit(uint256)'], signer);
+            await (await vault.deposit(amt)).wait();
+            
+            document.getElementById('status').innerText = 'Done!';
+        }
+
+        async function withdraw() {
+            const provider = new ethers.providers.Web3Provider(window.ethereum);
+            const signer = provider.getSigner();
+            const vault = new ethers.Contract(VAULT, ['function withdraw(uint256)','function balanceOf(address) view returns(uint256)'], signer);
+            const bal = await vault.balanceOf(await signer.getAddress());
+            await (await vault.withdraw(bal)).wait();
+            document.getElementById('status').innerText = 'Done!';
+        }
+    </script>
+</body>
+</html>
