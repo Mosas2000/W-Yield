@@ -10,7 +10,10 @@
     "deploy:sepolia": "hardhat run scripts/deploy.js --network baseSepolia",
     "deploy:mainnet": "hardhat run scripts/deploy.js --network base",
     "verify:sepolia": "hardhat run scripts/verify.js --network baseSepolia",
-    "verify:mainnet": "hardhat run scripts/verify.js --network base"
+    "verify:mainnet": "hardhat run scripts/verify.js --network base",
+    "balance": "hardhat run scripts/utils/check-balance.js --network base",
+    "stats": "hardhat run scripts/utils/vault-stats.js --network base",
+    "emergency": "hardhat run scripts/admin/emergency.js --network base"
   },
   "repository": {
     "type": "git",
