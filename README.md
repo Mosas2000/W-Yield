@@ -22,6 +22,13 @@ Check out [examples/](examples/) for code samples:
 - Vanilla JavaScript
 - Python client
 
+## 📖 Documentation
+
+- **[API Reference](docs/API.md)** - Complete function documentation
+- **[Integration Guide](docs/INTEGRATION.md)** - Quick start guide
+- **[Security](SECURITY.md)** - Security practices and audits
+- **[Contributing](CONTRIBUTING.md)** - Development guidelines
+
 ## Deployment
 
 ### Prerequisites
