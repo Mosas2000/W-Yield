@@ -15,6 +15,13 @@ Professional yield vault on Base for wealth generation.
 - **Token:** wUSDC (W-Yield USDC shares)
 - **Mainnet:** [`0x4F6c2D2bc33f032dbd74e617c32602bCBfFd3Fb2`](https://basescan.org/address/0x4F6c2D2bc33f032dbd74e617c32602bCBfFd3Fb2#code)
 
+## 📚 Integration Examples
+
+Check out [examples/](examples/) for code samples:
+- React components (Deposit/Withdraw)
+- Vanilla JavaScript
+- Python client
+
 ## Deployment
 
 ### Prerequisites
