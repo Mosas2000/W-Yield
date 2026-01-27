@@ -1,0 +1,17 @@
+{
+  "name": "wyield-backend",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "index": "node src/indexer.js",
+    "ws": "node src/websocket.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "ethers": "^5.7.2",
+    "ws": "^8.14.2",
+    "pg": "^8.11.3"
+  }
+}
