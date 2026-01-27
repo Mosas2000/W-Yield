@@ -3,16 +3,18 @@ const { ethers } = require("hardhat");
 async function deployVault() {
     const MockUSDC = await ethers.getContractFactory("MockUSDC");
     const usdc = await MockUSDC.deploy();
+    await usdc.waitForDeployment();
     
     const WealthVault = await ethers.getContractFactory("WealthVault");
-    const vault = await WealthVault.deploy(usdc.address);
+    const vault = await WealthVault.deploy(await usdc.getAddress());
+    await vault.waitForDeployment();
     
     return { vault, usdc };
 }
 
 async function setupUser(usdc, vault, user, amount) {
     await usdc.mint(user.address, amount);
-    await usdc.connect(user).approve(vault.address, amount);
+    await usdc.connect(user).approve(await vault.getAddress(), amount);
 }
 
 async function deposit(vault, user, amount) {

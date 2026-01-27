@@ -1,0 +1,8 @@
+{
+  "network": "base",
+  "deployer": "0xb378f49E4814c140B14382605280361ff6384152",
+  "basename": "cryptosecure.base.eth",
+  "contract": "0x4F6c2D2bc33f032dbd74e617c32602bCBfFd3Fb2",
+  "usdc": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+  "timestamp": "2026-01-22T16:54:04.055Z"
+}

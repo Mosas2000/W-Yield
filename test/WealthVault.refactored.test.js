@@ -8,7 +8,7 @@ describe("WealthVault - Refactored", function () {
     describe("Deployment", function () {
         it("Should deploy correctly", async function () {
             const { vault, usdc } = await loadFixture(vaultFixture);
-            expect(await vault.usdc()).to.equal(usdc.address);
+            expect(await vault.usdc()).to.equal(await usdc.getAddress());
         });
     });
     

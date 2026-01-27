@@ -8,11 +8,11 @@ describe("Integration Tests", function () {
         const { vault, usdc, user1 } = await loadFixture(vaultFixture);
         
         // Mint USDC
-        const amount = ethers.utils.parseUnits("100", 6);
+        const amount = ethers.parseUnits("100", 6);
         await usdc.mint(user1.address, amount);
         
         // Approve
-        await usdc.connect(user1).approve(vault.address, amount);
+        await usdc.connect(user1).approve(await vault.getAddress(), amount);
         
         // Deposit
         await vault.connect(user1).deposit(amount);
@@ -32,19 +32,21 @@ describe("Integration Tests", function () {
     it("Multiple users interact", async function () {
         const { vault, usdc, user1, user2, user3 } = await loadFixture(vaultFixture);
         
-        const amounts = [100, 200, 50].map(n => ethers.utils.parseUnits(n.toString(), 6));
+        const amounts = [100, 200, 50].map(n => ethers.parseUnits(n.toString(), 6));
         const users = [user1, user2, user3];
+        
+        const vaultAddress = await vault.getAddress();
         
         // All deposit
         for(let i = 0; i < 3; i++) {
             await usdc.mint(users[i].address, amounts[i]);
-            await usdc.connect(users[i]).approve(vault.address, amounts[i]);
+            await usdc.connect(users[i]).approve(vaultAddress, amounts[i]);
             await vault.connect(users[i]).deposit(amounts[i]);
         }
         
         // Check TVL
         const tvl = await vault.totalAssets();
-        expect(tvl).to.equal(ethers.utils.parseUnits("350", 6));
+        expect(tvl).to.equal(ethers.parseUnits("350", 6));
         
         // User 1 withdraws
         const shares = await vault.balanceOf(user1.address);
@@ -52,6 +54,6 @@ describe("Integration Tests", function () {
         
         // Check TVL decreased
         const newTvl = await vault.totalAssets();
-        expect(newTvl).to.equal(ethers.utils.parseUnits("250", 6));
+        expect(newTvl).to.equal(ethers.parseUnits("250", 6));
     });
 });
